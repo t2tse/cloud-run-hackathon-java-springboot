@@ -32,6 +32,7 @@ public class Application {
   static class Arena {
     public List<Integer> dims;
     public Map<String, PlayerState> state;
+    public Boolean wasHit;
   }
 
   static class ArenaUpdate {
@@ -55,11 +56,22 @@ public class Application {
 
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
+    
     System.out.println(arenaUpdate);
+  
+    int width = arenaUpdate.arena.dims.get(0);
+    int height = arenaUpdate.arena.dims.get(1);
+
+    boolean wasHit = arenaUpdate.arena.wasHit;
+
+    System.out.println("arena dim["+width+","+height+"]");
+    System.out.println("Were I hit? " + wasHit);
+
+
     String[] commands = new String[]{"F", "R", "L", "T"};
     int i = new Random().nextInt(4);
     
-    // TODO add your implementation here to replace the random response. 
+    // TODO 
     
     return commands[i];
   }
