@@ -58,31 +58,41 @@ public class Application {
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
     
     System.out.println(arenaUpdate);
-  
-    int size = arenaUpdate.arena.dims.size();
     
-    int width = arenaUpdate.arena.dims.get(0);
-    int height = arenaUpdate.arena.dims.get(1);
+    int width = arenaUpdate.arena.dims.get(0).intValue();
+    int height = arenaUpdate.arena.dims.get(1).intValue();
 
     boolean wasHit = arenaUpdate.arena.wasHit.booleanValue();
 
     System.out.println("arena dim["+width+","+height+"]");
     System.out.println("Were I hit? " + wasHit);
 
+  
+
     // if(wasHit){
+    //   if(canMoveForward(arenaUpdate.arena)){
 
+    //     return "F";
+    //   } else {
+    //     // Cannot move forward, turn right
+    //     return "R";
+    //   }
 
-
-    //   return "R";
     // }
 
-
+    // random command
     String[] commands = new String[]{"F", "R", "L", "T"};
     int i = new Random().nextInt(4);
     
-    // TODO 
-    
     return commands[i];
+  }
+
+  private boolean canMoveForward(Arena arena) {
+
+    
+
+
+    return false;
   }
 
 }
