@@ -59,12 +59,14 @@ public class Application {
     
     System.out.println(arenaUpdate);
   
-    int width = arenaUpdate.arena.dims.get(0);
-    int height = arenaUpdate.arena.dims.get(1);
+    int size = arenaUpdate.arena.dims.size();
+    System.out.println("size=" + size);
+    // int width = arenaUpdate.arena.dims.get(0);
+    // int height = arenaUpdate.arena.dims.get(1);
 
     boolean wasHit = arenaUpdate.arena.wasHit;
 
-    System.out.println("arena dim["+width+","+height+"]");
+    // System.out.println("arena dim["+width+","+height+"]");
     System.out.println("Were I hit? " + wasHit);
 
 
