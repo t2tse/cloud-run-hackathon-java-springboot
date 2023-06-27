@@ -62,12 +62,21 @@ public class Application {
     int width = arenaUpdate.arena.dims.get(0).intValue();
     int height = arenaUpdate.arena.dims.get(1).intValue();
 
-    boolean wasHit = arenaUpdate.arena.wasHit.booleanValue();
-
     System.out.println("arena dim["+width+","+height+"]");
-    System.out.println("Were I hit? " + wasHit);
 
-  
+    String myURL = arenaUpdate._links.self.href;
+    PlayerState myLocation = arenaUpdate.arena.state.get(myURL);
+
+    System.out.println("myLocation["+myLocation.x+","+myLocation.y+"] Direction["+myLocation.direction+"] hit? "+myLocation.wasHit);
+
+
+
+    // while(arenaUpdate.arena.state.values().iterator().hasNext()){
+    //   PlayerState playerState = arenaUpdate.arena.state.values().iterator().next();
+    //   if(playerState.){
+    //     return "HIT";
+    //   }
+    // }
 
     // if(wasHit){
     //   if(canMoveForward(arenaUpdate.arena)){
@@ -89,9 +98,9 @@ public class Application {
 
   private boolean canMoveForward(Arena arena) {
 
-    
-
-
+    while(arena.state.values().iterator().hasNext()){
+      
+    }
     return false;
   }
 
